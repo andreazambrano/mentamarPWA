@@ -1,8 +1,12 @@
-  <header class="header header-nontransparent-overlay-menu static-header header-sticky">
+  <!--=============================================
+    =            Header overlay menu         =
+    =============================================-->
+    
+    <header class="header header-nontransparent-overlay-menu static-header header-sticky">
         
         <!--=======  header bottom  =======-->
         
-        <div class="header-bottom pt-40 pb-40">
+        <div class="header-bottom pt-20 pb-20">
             <div class="container wide">
 
                     <!--=======  header bottom container  =======-->
@@ -34,13 +38,14 @@
                             <div class="site-main-nav d-none d-lg-block">
                                 <nav class="site-nav center-menu">
                                     <ul>
-                                        <li class="menu-item-has-children"><a href="shop-left-sidebar.html">Shop</a>
+                                        <li class="menu-item-has-children"><a routerLink="shop">Shop</a>
                                             
                                         </li>
-                                        <li class="menu-item-has-children"><a href="blog.html">Blog</a>
+                                        <li class="menu-item-has-children"><a routerLink="blog">Blog</a>
                                             
                                         </li>
-                                     
+                                    
+
                                     
                                     </ul>
                                 </nav>
@@ -52,7 +57,7 @@
                         <!--=======  logo   =======-->
                             
                         <div class="logo">
-                            <a href="index.html">
+                            <a routerLink="">
                                 <img src="assets/assetsprasi/images/logo.png" class="img-fluid" alt="">
                             </a>
                         </div>
@@ -68,38 +73,24 @@
                             <div class="header-right-icons d-flex justify-content-end align-items-center h-100">
                                 <!--=======  single-icon  =======-->
                                 
-                                <div class="single-icon search">
-                                    <a href="javascript:void(0)" id="search-icon">
-                                        <i class="ion-ios-search-strong"></i>
-                                    </a>
-                                </div>
+                            
+                                <!--=======  End of single-icon  =======-->
+                                <!--=======  single-icon  =======-->
+                                
+                               
                                 
                                 <!--=======  End of single-icon  =======-->
                                 <!--=======  single-icon  =======-->
                                 
-                                <div class="single-icon user-login">
-                                    <a href="shop-customer-login.html">
-                                        <i class="ion-android-person"></i>
-                                    </a>
-                                </div>
+                                
                                 
                                 <!--=======  End of single-icon  =======-->
                                 <!--=======  single-icon  =======-->
                                 
-                                <div class="single-icon wishlist">
-                                    <a href="javascript:void(0)" id="offcanvas-wishlist-icon">
-                                        <i class="ion-android-favorite-outline"></i>
-                                        <span class="count">2</span>
-                                    </a>
-                                </div>
-                                
-                                <!--=======  End of single-icon  =======-->
-                                <!--=======  single-icon  =======-->
-                                
-                                <div class="single-icon cart">
+                               <div class="single-icon cart" [hidden]="_uw.numProd<1 || this._uw.admin">
                                     <a href="javascript:void(0)" id="offcanvas-cart-icon">
                                         <i class="ion-ios-cart"></i>
-                                        <span class="count">3</span>
+                                        <span class="count">{{_uw.numProd}}</span>
                                     </a>
                                 </div>
                                 <!--=======  End of single-icon  =======-->
@@ -125,10 +116,10 @@
                                 </span>
                             </button><!--Site Mobile Menu Toggle End-->
                             <ul class="dl-menu dl-menu-toggle">
-                                  <li class=""><a href="shop-left-sidebar.html">Shop</a>
+                                  <li class=""><a routerLink="shop">Shop</a>
                                     
                                 </li>
-                                <li class=""><a href="blog.html">Blog</a>
+                                <li class=""><a routerLink="blog">Blog</a>
                                     
                                 </li>
                                 <!--   <li class=""><a href="index-instagram.html#">Enlace</a>
@@ -149,3 +140,49 @@
     
         <!--=======  End of header bottom  =======-->
     </header>
+    
+    <!--===== End of Header overlay menu ======-->
+
+
+   <!--=======  overlay-navigation-menu  =======-->
+
+   <div class="overlay-navigation-menu overlay-navigation-inactive" id="overlay-navigation-menu">
+        <!--=======  close icon  =======-->
+        
+        <span class="close-icon overlay-menu-close-icon">
+            <a href="javascript:void(0)" id="overlay-menu-close-icon">
+                <i class="ti-close"></i>
+            </a>
+        </span>
+        
+        <!--=======  End of close icon  =======-->
+   <!--=======  overlay navigation menu  =======-->
+        
+        <div class="overlay-navigation-menu-container">
+                <nav>
+                    <ul id="vertical-collapsible-menu">
+                        <li class="has-children">
+                            <a routerLink="shop">Shop</a>
+                           
+                        </li>
+                        <li class="has-children">
+                            <a routerLink="blog">Blog</a>
+                           
+                        </li>
+                      <!--   <li class="has-children">
+                            <a href="index.html#">enlace</a>
+                           
+                        </li>
+                        <li class="has-children">
+                            <a href="index.html#">enlace</a>
+                           
+                        </li> -->
+                       
+                    </ul>
+                </nav>
+        </div>
+        
+        <!--=======  End of overlay navigation menu  =======-->
+
+
+    </div>

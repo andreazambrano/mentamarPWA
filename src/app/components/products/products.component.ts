@@ -4,6 +4,7 @@ import { DataApiService} from '../../services/data-api.service';
 import { Location } from '@angular/common';
 import { Router } from '@angular/router';
 import { TixInterface } from '../../models/tix-interface'; 
+import { CategoryInterface } from '../../models/category-interface'; 
 import { UserWService } from "../../services/user-w.service";
 
 @Component({
@@ -25,9 +26,11 @@ export class ProductsComponent implements OnInit {
     url2 = "assets/assetsprasi/js/main.js";
   
 public tixs:TixInterface;
+public categories:CategoryInterface;
 public seted=false;
   ngOnInit() {
-  	  this.getAllTixsNew();
+  	  this.getAllTixs();
+      this.getAllCategories();
       if (this._uw.loaded==true){
           this.loadAPI = new Promise(resolve => {
             this.loadScript();
@@ -43,12 +46,21 @@ public seted=false;
 //   this._uw.images=tix.images;
 //   this.router.navigate(['/prasiproductdetail/'+tix.id]);
 // }
-getAllTixsNew(){
-        this.dataApi.getAllTixsNew().subscribe((res:any) => {
+getAllTixs(){
+        this.dataApi.getAllTixsReturn().subscribe((res:any) => {
       if (res[0] === undefined){
-        console.log("no");
+        console.log("hey");
        }else{
         this.tixs=res;            
+        }
+     });  
+    }
+getAllCategories(){
+        this.dataApi.getAllCategories().subscribe((res:any) => {
+      if (res[0] === undefined){
+        // console.log("no");
+       }else{
+        this.categories=res;            
         }
      });  
     }
